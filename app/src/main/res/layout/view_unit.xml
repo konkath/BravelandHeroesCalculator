@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/unit_image"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"
+        tools:srcCompat="@android:drawable/ic_menu_myplaces" />
+
+    <ImageView
+        android:id="@+id/unit_star"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_name"
+        app:layout_constraintStart_toEndOf="@+id/unit_name"
+        app:layout_constraintTop_toTopOf="@+id/unit_name"
+        app:srcCompat="@drawable/star"
+        tools:ignore="ContentDescription"
+        tools:srcCompat="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/unit_movement"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_initiative_value"
+        app:layout_constraintEnd_toStartOf="@+id/unit_movement_value"
+        app:layout_constraintTop_toTopOf="@+id/unit_initiative_value"
+        app:srcCompat="@drawable/speed"
+        tools:ignore="ContentDescription"
+        tools:srcCompat="@drawable/speed" />
+
+    <ImageView
+        android:id="@+id/unit_leadership"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_initiative_value"
+        app:layout_constraintEnd_toStartOf="@+id/unit_leadership_value"
+        app:layout_constraintTop_toTopOf="@+id/unit_initiative_value"
+        app:layout_constraintVertical_bias="0.666"
+        app:srcCompat="@drawable/leadership"
+        tools:ignore="ContentDescription"
+        tools:srcCompat="@drawable/leadership" />
+
+    <ImageView
+        android:id="@+id/unit_initiative"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_initiative_value"
+        app:layout_constraintEnd_toStartOf="@+id/unit_initiative_value"
+        app:layout_constraintTop_toTopOf="@+id/unit_initiative_value"
+        app:srcCompat="@drawable/initiative"
+        tools:ignore="ContentDescription"
+        tools:srcCompat="@drawable/initiative" />
+
+    <ImageView
+        android:id="@+id/unit_damage2"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_max_damage_value"
+        app:layout_constraintStart_toEndOf="@+id/unit_max_damage_value"
+        app:layout_constraintTop_toTopOf="@+id/unit_max_damage_value"
+        app:srcCompat="@drawable/health"
+        tools:ignore="ContentDescription"
+        tools:srcCompat="@drawable/health" />
+
+    <ImageView
+        android:id="@+id/unit_damage"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_max_damage_value"
+        app:layout_constraintEnd_toStartOf="@+id/unit_min_damage_value"
+        app:layout_constraintTop_toTopOf="@+id/unit_max_damage_value"
+        app:layout_constraintVertical_bias="0.333"
+        app:srcCompat="@drawable/damage"
+        tools:ignore="ContentDescription"
+        tools:srcCompat="@drawable/damage" />
+
+    <ImageView
+        android:id="@+id/unit_defence"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_initiative_value"
+        app:layout_constraintStart_toEndOf="@+id/unit_initiative_value"
+        app:layout_constraintTop_toTopOf="@+id/unit_initiative_value"
+        app:srcCompat="@drawable/physical_defense"
+        tools:ignore="ContentDescription"
+        tools:srcCompat="@drawable/physical_defense" />
+
+    <ImageView
+        android:id="@+id/unit_magic_defence"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/unit_defence_value"
+        app:layout_constraintTop_toBottomOf="@+id/unit_type"
+        app:srcCompat="@drawable/magic_defense"
+        tools:ignore="ContentDescription"
+        tools:srcCompat="@drawable/magic_defense" />
+
+    <TextView
+        android:id="@+id/unit_star_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_star"
+        app:layout_constraintStart_toEndOf="@+id/unit_star"
+        app:layout_constraintTop_toTopOf="@+id/unit_star"
+        tools:text="5" />
+
+    <TextView
+        android:id="@+id/unit_leadership_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_initiative_value"
+        app:layout_constraintEnd_toStartOf="@+id/unit_movement"
+        app:layout_constraintTop_toTopOf="@+id/unit_initiative_value"
+        tools:text="3" />
+
+    <TextView
+        android:id="@+id/unit_movement_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_initiative_value"
+        app:layout_constraintEnd_toStartOf="@+id/unit_initiative"
+        app:layout_constraintTop_toTopOf="@+id/unit_initiative_value"
+        tools:text="2" />
+
+    <TextView
+        android:id="@+id/unit_initiative_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/unit_quantity"
+        app:layout_constraintStart_toEndOf="@+id/unit_image"
+        app:layout_constraintTop_toBottomOf="@+id/unit_name"
+        tools:text="4" />
+
+    <TextView
+        android:id="@+id/unit_min_damage_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_max_damage_value"
+        app:layout_constraintEnd_toStartOf="@+id/unit_damage_separator"
+        app:layout_constraintTop_toTopOf="@+id/unit_max_damage_value"
+        tools:text="50" />
+
+    <TextView
+        android:id="@+id/unit_health_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_max_damage_value"
+        app:layout_constraintStart_toEndOf="@+id/unit_damage2"
+        app:layout_constraintTop_toTopOf="@+id/unit_max_damage_value"
+        tools:text="100" />
+
+    <TextView
+        android:id="@+id/unit_max_damage_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/unit_quantity"
+        app:layout_constraintStart_toEndOf="@+id/unit_image"
+        app:layout_constraintTop_toBottomOf="@+id/unit_initiative_value"
+        tools:text="55" />
+
+    <TextView
+        android:id="@+id/unit_damage_separator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_max_damage_value"
+        app:layout_constraintEnd_toStartOf="@+id/unit_max_damage_value"
+        app:layout_constraintTop_toTopOf="@+id/unit_max_damage_value"
+        tools:text="-" />
+
+    <TextView
+        android:id="@+id/unit_defence_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_initiative_value"
+        app:layout_constraintStart_toEndOf="@+id/unit_defence"
+        app:layout_constraintTop_toTopOf="@+id/unit_initiative_value"
+        tools:text="20" />
+
+    <TextView
+        android:id="@+id/unit_magic_defence_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_leadership"
+        app:layout_constraintStart_toEndOf="@+id/unit_magic_defence"
+        app:layout_constraintTop_toTopOf="@+id/unit_initiative_value"
+        tools:text="25" />
+
+    <ImageView
+        android:id="@+id/unit_type"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_name"
+        app:layout_constraintEnd_toStartOf="@+id/unit_name"
+        app:layout_constraintTop_toTopOf="@+id/unit_name"
+        tools:ignore="ContentDescription"
+        tools:srcCompat="@drawable/damage" />
+
+    <ImageView
+        android:id="@+id/unit_kingdom"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unit_type"
+        app:layout_constraintEnd_toStartOf="@+id/unit_type"
+        app:layout_constraintTop_toTopOf="@+id/unit_type"
+        tools:ignore="ContentDescription"
+        tools:srcCompat="@drawable/commander_of_the_kingdom" />
+
+    <TextView
+        android:id="@+id/unit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/unit_quantity"
+        app:layout_constraintStart_toEndOf="@+id/unit_image"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="unit_name" />
+
+    <EditText
+        android:id="@+id/unit_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:ems="2"
+        android:hint="0"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:maxLength="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
