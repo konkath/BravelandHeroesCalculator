@@ -62,15 +62,13 @@ public class MainActivity extends AppCompatActivity {
         mRVAdapter = new UnitAdapter(mShownUnits);
         recyclerView.setAdapter(mRVAdapter);
 
-        ClanFilter clanFilter = new ClanFilter(getApplicationContext(),
-                findViewById(R.id.includeClanFilter), R.layout.filter_clan);
+        ClanFilter clanFilter = findViewById(R.id.includeClanFilter);
         clanFilter.setFiltrationChangedCallback(filterMask -> {
             mClanFilter = filterMask;
             populateFilteredUnits();
         });
 
-        TypeFilter typeFilter = new TypeFilter(getApplicationContext(),
-                findViewById(R.id.includeTypeFilter), R.layout.filter_type);
+        TypeFilter typeFilter = findViewById(R.id.includeTypeFilter);
         typeFilter.setFiltrationChangedCallback(filterMask -> {
             mTypeFilter = filterMask;
             populateFilteredUnits();

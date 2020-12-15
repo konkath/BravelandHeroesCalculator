@@ -1,20 +1,19 @@
 package com.soltysdev.bravelandheroescalculator.filters;
 
 import android.content.Context;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.soltysdev.bravelandheroescalculator.R;
 import com.soltysdev.bravelandheroescalculator.unit.UnitClan;
 
 public final class ClanFilter extends Filter {
-    public ClanFilter(Context ctx, ViewGroup root, int viewId) {
-        super(UnitClan.getFullMask());
+    public ClanFilter(Context ctx, AttributeSet attributeSet) {
+        super(ctx, attributeSet, UnitClan.getFullMask());
 
         LinearLayout layout = (LinearLayout) LayoutInflater.from(ctx)
-                .inflate(viewId, root, false);
-        root.addView(layout);
+                .inflate(R.layout.filter_clan, this);
 
         layout.findViewById(R.id.filterByBanditButton).setOnClickListener((v) -> onClick(v, UnitClan.Bandit.mask));
         layout.findViewById(R.id.filterByCommanderButton).setOnClickListener((v) -> onClick(v, UnitClan.Commander.mask));

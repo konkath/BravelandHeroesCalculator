@@ -1,15 +1,19 @@
 package com.soltysdev.bravelandheroescalculator.filters;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.util.AttributeSet;
 import android.view.View;
+import android.widget.LinearLayout;
 
-class Filter {
+class Filter extends LinearLayout {
 
     private OnFiltrationChangedCallback mFiltrationCallback;
     private int mFilterMask;
 
-    Filter(int filterMask) {
+    Filter(Context ctx, AttributeSet attributeSet, int filterMask) {
+        super(ctx, attributeSet);
         mFilterMask = filterMask;
     }
 

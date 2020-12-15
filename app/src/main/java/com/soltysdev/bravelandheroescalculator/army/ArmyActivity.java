@@ -47,12 +47,10 @@ public class ArmyActivity extends AppCompatActivity {
         mPreviousArmyButton = findViewById(R.id.previousArmyButton);
         mPreviousArmyButton.setEnabled(false);
 
-        ClanFilter clanFilter = new ClanFilter(getApplicationContext(),
-                findViewById(R.id.includeArmyClanFilter), R.layout.filter_clan);
+        ClanFilter clanFilter = findViewById(R.id.includeArmyClanFilter);
         clanFilter.setFiltrationChangedCallback(filterMask -> mClanFilter = filterMask);
 
-        TypeFilter typeFilter = new TypeFilter(getApplicationContext(),
-                findViewById(R.id.includeArmyTypeFilter), R.layout.filter_type);
+        TypeFilter typeFilter = findViewById(R.id.includeArmyTypeFilter);
         typeFilter.setFiltrationChangedCallback(filterMask -> mTypeFilter = filterMask);
     }
 
