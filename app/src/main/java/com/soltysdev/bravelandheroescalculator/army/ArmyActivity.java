@@ -1,6 +1,8 @@
 package com.soltysdev.bravelandheroescalculator.army;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +32,7 @@ public class ArmyActivity extends AppCompatActivity {
     private Button mNextArmyButton;
     private Button mPreviousArmyButton;
     private int mArmyIdx;
+    private int mArmyStars;
 
     private int mTypeFilter = UnitType.getFullMask();
     private int mClanFilter = UnitClan.getFullMask();
@@ -48,15 +51,27 @@ public class ArmyActivity extends AppCompatActivity {
         mPreviousArmyButton.setEnabled(false);
 
         ClanFilter clanFilter = findViewById(R.id.includeArmyClanFilter);
-        clanFilter.setFiltrationChangedCallback(filterMask -> mClanFilter = filterMask);
+        clanFilter.setFiltrationChangedCallback(filterMask -> {
+            mClanFilter = filterMask;
+            calculateArmy();
+        });
 
         TypeFilter typeFilter = findViewById(R.id.includeArmyTypeFilter);
-        typeFilter.setFiltrationChangedCallback(filterMask -> mTypeFilter = filterMask);
+        typeFilter.setFiltrationChangedCallback(filterMask -> {
+            mTypeFilter = filterMask;
+            calculateArmy();
+        });
+
+        EditText editText = findViewById(R.id.army_quantity);
+        editText.addTextChangedListener(new ArmyStarsWatcher());
+        mArmyStars = getArmyStars(editText.getText());
+
+        calculateArmy();
     }
 
-    public void onCalculateArmyClick(View view) {
+    void calculateArmy() {
         mArmyIdx = 0;
-        mArmies = mCalculator.calculate(getArmyStars(), mTypeFilter, mClanFilter);
+        mArmies = mCalculator.calculate(mArmyStars, mTypeFilter, mClanFilter);
         refreshNavButtons();
         populateArmy();
     }
@@ -93,14 +108,29 @@ public class ArmyActivity extends AppCompatActivity {
         }
     }
 
-    private int getArmyStars() {
-        EditText editText = findViewById(R.id.army_quantity);
-        String value = editText.getText().toString();
-        return value.isEmpty() ? 0 : Integer.parseInt(value);
-    }
-
     private void refreshNavButtons() {
         mPreviousArmyButton.setEnabled(mArmyIdx != 0);
         mNextArmyButton.setEnabled(mArmyIdx != mArmies.size() - 1);
+    }
+
+    private int getArmyStars(Editable editable) {
+        String value = editable.toString();
+        return value.isEmpty() ? 0 : Integer.parseInt(value);
+    }
+
+    class ArmyStarsWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            mArmyStars = getArmyStars(editable);
+            calculateArmy();
+        }
     }
 }
