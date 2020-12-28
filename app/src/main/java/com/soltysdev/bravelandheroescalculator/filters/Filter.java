@@ -1,20 +1,26 @@
 package com.soltysdev.bravelandheroescalculator.filters;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 class Filter extends LinearLayout {
 
     private OnFiltrationChangedCallback mFiltrationCallback;
+    private ColorMatrixColorFilter grayFilter;
     private int mFilterMask;
 
     Filter(Context ctx, AttributeSet attributeSet, int filterMask) {
         super(ctx, attributeSet);
         mFilterMask = filterMask;
+
+        ColorMatrix matrix = new ColorMatrix();
+        matrix.setSaturation(0);  // grayscale
+        grayFilter = new ColorMatrixColorFilter(matrix);
     }
 
     public interface OnFiltrationChangedCallback {
@@ -33,13 +39,18 @@ class Filter extends LinearLayout {
     }
 
     private int updateFilteredUnits(int unitMask, View view) {
+        ImageView imgView = (ImageView) view;
+
         if ((mFilterMask & unitMask) == unitMask) {
             mFilterMask &= ~unitMask;
-            view.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
+            imgView.setColorFilter(grayFilter);
+            imgView.setImageAlpha(128);
         } else {
             mFilterMask |= unitMask;
-            view.getBackground().clearColorFilter();
+            imgView.clearColorFilter();
+            imgView.setImageAlpha(255);
         }
+
         return mFilterMask;
     }
 }

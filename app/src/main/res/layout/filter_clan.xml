@@ -1,89 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/FilterClanLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:orientation="horizontal">
 
-    <Button
+    <ImageView
         android:id="@+id/filterByCommanderButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/commander_of_the_kingdom" />
+        android:scaleType="center"
+        android:src="@drawable/commander_of_the_kingdom"
+        tools:ignore="ContentDescription" />
 
-    <Button
+    <ImageView
         android:id="@+id/filterByIceMageButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/ice_mage" />
+        android:scaleType="center"
+        android:src="@drawable/ice_mage"
+        tools:ignore="ContentDescription" />
 
-    <Button
+    <ImageView
         android:id="@+id/filterByPirateButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/pirate_captain" />
+        android:scaleType="center"
+        android:src="@drawable/pirate_captain"
+        tools:ignore="ContentDescription" />
 
-    <Button
+    <ImageView
         android:id="@+id/filterByElvesButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/prince_of_the_elves" />
+        android:scaleType="center"
+        android:src="@drawable/prince_of_the_elves"
+        tools:ignore="ContentDescription" />
 
-    <Button
+    <ImageView
         android:id="@+id/filterByNeutralButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/neutral" />
+        android:scaleType="center"
+        android:src="@drawable/neutral"
+        tools:ignore="ContentDescription" />
 
-    <Button
+    <ImageView
         android:id="@+id/filterByBanditButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/bandit_leader" />
+        android:scaleType="center"
+        android:src="@drawable/bandit_leader"
+        tools:ignore="ContentDescription" />
 
-    <Button
+    <ImageView
         android:id="@+id/filterBySorcererButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/fire_sorcerer" />
+        android:scaleType="center"
+        android:src="@drawable/fire_sorcerer"
+        tools:ignore="ContentDescription" />
 
-    <Button
+    <ImageView
         android:id="@+id/filterByOrcButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/orc_chieftain" />
+        android:scaleType="center"
+        android:src="@drawable/orc_chieftain"
+        tools:ignore="ContentDescription"/>
 
-    <Button
+    <ImageView
         android:id="@+id/filterByDeadButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/lord_of_the_dead" />
+        android:scaleType="center"
+        android:src="@drawable/lord_of_the_dead"
+        tools:ignore="ContentDescription" />
 
-    <Button
+    <ImageView
         android:id="@+id/filterByDemonButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/demon_lord" />
+        android:scaleType="center"
+        android:src="@drawable/demon_lord"
+        tools:ignore="ContentDescription" />
 
 </LinearLayout>

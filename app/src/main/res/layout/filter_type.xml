@@ -2,38 +2,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center"
     android:orientation="horizontal">
 
-    <Button
+    <ImageView
         android:id="@+id/filterByWarriorButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/warrior" />
+        android:scaleType="center"
+        android:src="@drawable/warrior"
+        tools:ignore="ContentDescription" />
 
-    <Button
+    <ImageView
         android:id="@+id/filterByDefenderButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/defender" />
+        android:scaleType="center"
+        android:src="@drawable/defender"
+        tools:ignore="ContentDescription" />
 
-    <Button
+    <ImageView
         android:id="@+id/filterByMarksmanButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/marksman" />
+        android:scaleType="center"
+        android:src="@drawable/marksman"
+        tools:ignore="ContentDescription" />
 
-    <Button
+    <ImageView
         android:id="@+id/filterByMageButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/mage" />
+        android:scaleType="center"
+        android:src="@drawable/mage"
+        tools:ignore="ContentDescription" />
 </LinearLayout>

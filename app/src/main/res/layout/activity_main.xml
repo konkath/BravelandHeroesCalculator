@@ -36,41 +36,49 @@
             app:layout_constraintStart_toEndOf="@id/includeTypeFilter"
             app:layout_constraintTop_toTopOf="parent">
 
-            <Button
+            <ImageView
                 android:id="@+id/sortByNameButton"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/unit"
-                android:onClick="OnSortByNameClick" />
+                android:onClick="OnSortByNameClick"
+                android:scaleType="center"
+                android:src="@drawable/unit"
+                tools:ignore="ContentDescription" />
 
-            <Button
+            <ImageView
                 android:id="@+id/sortByClanButton"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/clan"
-                android:onClick="OnSortByClanClick" />
+                android:onClick="OnSortByClanClick"
+                android:scaleType="center"
+                android:src="@drawable/clan"
+                tools:ignore="ContentDescription" />
 
-            <Button
+            <ImageView
                 android:id="@+id/sortByAttackButton"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/damage"
-                android:onClick="OnSortByAttackClick" />
+                android:onClick="OnSortByAttackClick"
+                android:scaleType="center"
+                android:src="@drawable/damage"
+                tools:ignore="ContentDescription" />
 
-            <Button
+            <ImageView
                 android:id="@+id/sortByHealthButton"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/health"
-                android:onClick="OnSortByHealthClick" />
+                android:onClick="OnSortByHealthClick"
+                android:scaleType="center"
+                android:src="@drawable/health"
+                tools:ignore="ContentDescription" />
 
         </LinearLayout>
 
