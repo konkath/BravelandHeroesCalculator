@@ -23,7 +23,7 @@ public class UnitAdapter extends RecyclerView.Adapter<UnitViewHolder> {
     public UnitViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ConstraintLayout layout = (ConstraintLayout) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.view_unit, parent, false);
-        return new UnitViewHolder(layout);
+        return new UnitViewHolder(layout, true);
     }
 
     @Override

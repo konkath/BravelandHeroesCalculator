@@ -2,6 +2,7 @@ package com.soltysdev.bravelandheroescalculator.unit;
 
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,27 +21,16 @@ public class UnitViewHolder extends RecyclerView.ViewHolder {
     private Unit mUnit;
     private EditText mEditQuantity;
 
-    public UnitViewHolder(ConstraintLayout constraintLayout) {
+    public UnitViewHolder(ConstraintLayout constraintLayout, boolean quantityEditable) {
         super(constraintLayout);
         mConstraintLayout = constraintLayout;
 
         mEditQuantity = mConstraintLayout.findViewById(R.id.unit_quantity);
-        mEditQuantity.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                final int unitQuantity = charSequence.length() < 1 ? 0 :
-                        Integer.parseInt(charSequence.toString());
-                recalculateAttributesToQuantity(unitQuantity);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-            }
-        });
+        if (quantityEditable) {
+            mEditQuantity.addTextChangedListener(new QuantityTextWatcher());
+        } else {
+            mEditQuantity.setInputType(InputType.TYPE_NULL);
+        }
     }
 
     public void populateUnitHolder(Unit unit) {
@@ -139,5 +129,22 @@ public class UnitViewHolder extends RecyclerView.ViewHolder {
         }
         Drawable drawable = mConstraintLayout.getResources().getDrawable(drawableId, null);
         imageView.setImageDrawable(drawable);
+    }
+
+    class QuantityTextWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            final int unitQuantity = charSequence.length() < 1 ? 0 :
+                    Integer.parseInt(charSequence.toString());
+            recalculateAttributesToQuantity(unitQuantity);
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+        }
     }
 }

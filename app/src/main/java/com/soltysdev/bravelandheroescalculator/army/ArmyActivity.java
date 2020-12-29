@@ -89,20 +89,20 @@ public class ArmyActivity extends AppCompatActivity {
     }
 
     private void populateArmy() {
-        if (mArmyIdx < 0 || mArmyIdx > mArmies.size()) {
+        LinearLayout armyLayout = findViewById(R.id.armyUnits);
+        armyLayout.removeAllViews();
+
+        if (mArmyIdx < 0 || mArmyIdx >= mArmies.size()) {
             Log.w(TAG, "requested to populate army outside of array bounds (" +
                     mArmyIdx + "/" + mArmies.size() + ")!");
             return;
         }
 
-        LinearLayout armyLayout = findViewById(R.id.armyUnits);
-        armyLayout.removeAllViews();
-
         final Army army = mArmies.get(mArmyIdx);
         for (Unit unit : army.getUnits()) {
             ConstraintLayout cLayout = (ConstraintLayout) LayoutInflater.from(this)
                     .inflate(R.layout.view_unit, armyLayout, false);
-            UnitViewHolder uv = new UnitViewHolder(cLayout);
+            UnitViewHolder uv = new UnitViewHolder(cLayout, false);
             uv.populateUnitHolder(unit);
             armyLayout.addView(cLayout);
         }
