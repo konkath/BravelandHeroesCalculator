@@ -12,6 +12,7 @@ final class Army {
     private int mStars;
     private int mMinAttack;
     private int mMaxAttack;
+    private float mAvgAttack;
     private int mHealth;
 
     Army(ArrayList<Unit> units) {
@@ -21,6 +22,7 @@ final class Army {
             mStars += unit.getStars();
             mMinAttack += unit.getMinAttack();
             mMaxAttack += unit.getMaxAttack();
+            mAvgAttack += getAverageAttack();
             mHealth += unit.getHealth();
         });
     }
@@ -33,7 +35,7 @@ final class Army {
         return (float) (mMaxAttack + mMinAttack) / 2;
     }
 
-    static Comparator<Army> ByAttack = (lhs, rhs) -> Float.compare(rhs.getAverageAttack(), lhs.getAverageAttack());
+    static Comparator<Army> ByAttack = (lhs, rhs) -> Float.compare(rhs.mAvgAttack, lhs.mAvgAttack);
 
     @Override
     public boolean equals(Object o) {
