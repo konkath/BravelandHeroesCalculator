@@ -7,6 +7,7 @@ import java.util.Comparator;
 import java.util.Objects;
 
 import lombok.Getter;
+import lombok.Setter;
 
 public class Unit implements Parcelable {
     private int type;
@@ -31,8 +32,8 @@ public class Unit implements Parcelable {
     private int movement;
     @Getter
     private int initiative;
-
-    private int mQuantity;
+    @Getter @Setter
+    private int quantity;
     private OnDatabaseUpdateCallback onDatabaseUpdateCallback;
 
     public interface OnDatabaseUpdateCallback {
@@ -41,10 +42,6 @@ public class Unit implements Parcelable {
 
     public void setOnDatabaseUpdateCallback(OnDatabaseUpdateCallback callback) {
         onDatabaseUpdateCallback = callback;
-    }
-
-    public void setQuantity(int quantity) {
-        mQuantity = quantity;
     }
 
     public UnitType getType() {
@@ -56,19 +53,19 @@ public class Unit implements Parcelable {
     }
 
     public int getMinAttack() {
-        return min_attack * mQuantity;
+        return min_attack * quantity;
     }
 
     public int getMaxAttack() {
-        return max_attack * mQuantity;
+        return max_attack * quantity;
     }
 
     public int getHealth() {
-        return health * mQuantity;
+        return health * quantity;
     }
 
     void updateQuantity(int quantity) {
-        mQuantity = quantity;
+        this.quantity = quantity;
 
         // Callback will be null for Units in ArmyActivity
         if (onDatabaseUpdateCallback != null) {
@@ -77,19 +74,15 @@ public class Unit implements Parcelable {
     }
 
     int getNormalizedMinAttack() {
-        return mQuantity == 0 ? min_attack : min_attack * mQuantity;
+        return quantity == 0 ? min_attack : min_attack * quantity;
     }
 
     int getNormalizedMaxAttack() {
-        return mQuantity == 0 ? max_attack : max_attack * mQuantity;
+        return quantity == 0 ? max_attack : max_attack * quantity;
     }
 
     int getNormalizedHealth() {
-        return mQuantity == 0 ? health : health * mQuantity;
-    }
-
-    int getQuantity() {
-        return mQuantity;
+        return quantity == 0 ? health : health * quantity;
     }
 
     private float getAverageAttack() {
@@ -124,7 +117,7 @@ public class Unit implements Parcelable {
         magic_defence = in.readInt();
         movement = in.readInt();
         initiative = in.readInt();
-        mQuantity = in.readInt();
+        quantity = in.readInt();
     }
 
     public static final Creator<Unit> CREATOR = new Creator<Unit>() {
@@ -159,6 +152,6 @@ public class Unit implements Parcelable {
         parcel.writeInt(magic_defence);
         parcel.writeInt(movement);
         parcel.writeInt(initiative);
-        parcel.writeInt(mQuantity);
+        parcel.writeInt(quantity);
     }
 }

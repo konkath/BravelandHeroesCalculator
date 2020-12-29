@@ -40,7 +40,10 @@ final class ArmyCalculator {
 
                 ArrayList<Unit> units = filteredUnits.get(unitStars);
                 if (units != null && units.size() > unitIdx) {
-                    armyUnits.add(units.get(unitIdx));
+                    Unit unit = units.get(unitIdx);
+                    if (unit.getQuantity() > 0) {
+                        armyUnits.add(unit);
+                    }
                 }
             });
 
