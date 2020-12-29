@@ -4,6 +4,7 @@ import com.soltysdev.bravelandheroescalculator.unit.Unit;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Objects;
 
 final class Army {
 
@@ -33,4 +34,16 @@ final class Army {
     }
 
     static Comparator<Army> ByAttack = (lhs, rhs) -> Float.compare(rhs.getAverageAttack(), lhs.getAverageAttack());
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Army army = (Army) o;
+        return mStars == army.mStars &&
+                mMinAttack == army.mMinAttack &&
+                mMaxAttack == army.mMaxAttack &&
+                mHealth == army.mHealth &&
+                Objects.equals(mUnits, army.mUnits);
+    }
 }

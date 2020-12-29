@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.Comparator;
+import java.util.Objects;
 
 import lombok.Getter;
 
@@ -99,6 +100,14 @@ public class Unit implements Parcelable {
     public static Comparator<Unit> ByHealth = (lhs, rhs) -> Float.compare(rhs.getHealth(), lhs.getHealth());
     public static Comparator<Unit> ByName = (lhs, rhs) -> lhs.name.compareTo(rhs.name);
     public static Comparator<Unit> ByClan = (lhs, rhs) -> Integer.compare(lhs.clan, rhs.clan);
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Unit unit = (Unit) o;
+        return Objects.equals(name, unit.name);
+    }
 
     // Parcelable implementation
     private Unit(Parcel in) {

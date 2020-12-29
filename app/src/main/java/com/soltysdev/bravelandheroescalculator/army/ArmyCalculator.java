@@ -44,7 +44,12 @@ final class ArmyCalculator {
                 }
             });
 
-            generatedArmies.add(new Army(armyUnits));
+            if (!armyUnits.isEmpty()) {
+                Army army = new Army(armyUnits);
+                if (!generatedArmies.contains(army)) {
+                    generatedArmies.add(army);
+                }
+            }
         });
 
         generatedArmies.sort(Army.ByAttack);
