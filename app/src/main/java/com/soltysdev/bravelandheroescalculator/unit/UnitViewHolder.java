@@ -40,7 +40,7 @@ public class UnitViewHolder extends RecyclerView.ViewHolder {
         populateUnitType(mUnit.getType());
         populateUnitKingdom(mUnit.getClan());
 
-        populateTextView(R.id.unit_name, mUnit.getName());
+        populateTextView(R.id.unit_name, mUnit.getTranslated_name());
         populateTextView(R.id.unit_star_value, String.valueOf(mUnit.getStars()));
         populateTextView(R.id.unit_leadership_value, String.valueOf(mUnit.getLeadership()));
         populateTextView(R.id.unit_defence_value, String.valueOf(mUnit.getDefence()));

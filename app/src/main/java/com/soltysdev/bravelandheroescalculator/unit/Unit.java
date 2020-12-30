@@ -1,5 +1,6 @@
 package com.soltysdev.bravelandheroescalculator.unit;
 
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -19,6 +20,8 @@ public class Unit implements Parcelable {
     @Getter
     private String name;
     @Getter
+    private String translated_name;
+    @Getter
     private String img;
     @Getter
     private int stars;
@@ -32,9 +35,16 @@ public class Unit implements Parcelable {
     private int movement;
     @Getter
     private int initiative;
-    @Getter @Setter
+    @Getter
+    @Setter
     private int quantity;
     private OnDatabaseUpdateCallback onDatabaseUpdateCallback;
+
+    public void updateLanguage(Context context) {
+        String packageName = context.getPackageName();
+        int resId = context.getResources().getIdentifier(name, "string", packageName);
+        translated_name = context.getResources().getString(resId);
+    }
 
     public interface OnDatabaseUpdateCallback {
         void UpdateQuantity(int quantity);
@@ -91,7 +101,7 @@ public class Unit implements Parcelable {
 
     public static Comparator<Unit> ByAttack = (lhs, rhs) -> Float.compare(rhs.getAverageAttack(), lhs.getAverageAttack());
     public static Comparator<Unit> ByHealth = (lhs, rhs) -> Float.compare(rhs.getHealth(), lhs.getHealth());
-    public static Comparator<Unit> ByName = (lhs, rhs) -> lhs.name.compareTo(rhs.name);
+    public static Comparator<Unit> ByName = (lhs, rhs) -> lhs.translated_name.compareTo(rhs.translated_name);
     public static Comparator<Unit> ByClan = (lhs, rhs) -> Integer.compare(lhs.clan, rhs.clan);
 
     @Override
@@ -110,6 +120,7 @@ public class Unit implements Parcelable {
         max_attack = in.readInt();
         health = in.readInt();
         name = in.readString();
+        translated_name = in.readString();
         img = in.readString();
         stars = in.readInt();
         leadership = in.readInt();
@@ -145,6 +156,7 @@ public class Unit implements Parcelable {
         parcel.writeInt(max_attack);
         parcel.writeInt(health);
         parcel.writeString(name);
+        parcel.writeString(translated_name);
         parcel.writeString(img);
         parcel.writeInt(stars);
         parcel.writeInt(leadership);

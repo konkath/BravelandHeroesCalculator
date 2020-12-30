@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         mAllUnits = loadUnits();
         mAllUnits.forEach(unit -> {
             unit.setQuantity(mUnitsRepository.getUnitQuantity(unit.getName()));
+            unit.updateLanguage(getApplicationContext());
             unit.setOnDatabaseUpdateCallback(quantity -> mUnitsRepository.insert(
                     new UnitQuantity(unit.getName(), quantity)));
         });
