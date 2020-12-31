@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">BravelandHeroesCalculator</string>
+    <string name="army_button">Stwórz Armię</string>
+
+    <!--Units-->
+    <string name="peasant_name">Chłop</string>
+    <string name="archer_name">Łucznik</string>
+    <string name="cabin_boy_name">Chłopiec Okrętowy</string>
+    <string name="peon_name">Parobek</string>
+    <string name="goblin_shooter_name">Goblin Strzelec</string>
+    <string name="vagrant_archer_name">Łucznik Włóczęga</string>
+    <string name="skeleton_archer_name">Szkielet Łucznik</string>
+    <string name="servant_name">Sługa</string>
+    <string name="pyromaniac_name">Piroman</string>
+    <string name="frost_archer_name">Lodowa Łuczniczka</string>
+    <string name="healer_name">Uzdrowicielka</string>
+    <string name="student_name">Uczeń</string>
+    <string name="snowy_goblin_name">Śnieżny Goblin</string>
+    <string name="apprentice_name">Nowicjusz</string>
+    <string name="goblin_name">Goblin</string>
+    <string name="bandit_archer_name">Łucznik Bandyta</string>
+    <string name="ghost_sorcerer_name">Duch Czarownik</string>
+    <string name="imp_name">Chochlik</string>
+    <string name="fairy_name">Wróżka</string>
+    <string name="skeleton_name">Szkielet</string>
+    <string name="pirate_name">Pirat</string>
+    <string name="bandit_name">Bandyta</string>
+    <string name="goblin_brewmaster_name">Goblin Browarnik</string>
+    <string name="frogman_name">Frogman</string>
+    <string name="daredevil_name">Śmiałek</string>
+    <string name="zombie_name">Zombi</string>
+    <string name="thorns_name">Tarnina</string>
+    <string name="hunter_name">Łowca</string>
+    <string name="bat_name">Nietoperz</string>
+    <string name="calypso_name">Kalipso</string>
+    <string name="bard_name">Bard</string>
+    <string name="pathfinder_name">Tropiciel</string>
+    <string name="ghost_name">Duch</string>
+    <string name="blacksmith_name">Kowal</string>
+    <string name="infernal_name">Ognik</string>
+    <string name="elementalist_name">Elementalista</string>
+    <string name="dryad_name">Driada</string>
+    <string name="arbalest_name">Kusznik</string>
+    <string name="cook_name">Kucharz</string>
+    <string name="monk_name">Mnich</string>
+    <string name="snow_wolf_name">Śnieżny Wilk</string>
+    <string name="ancient_skeleton_name">Stary Szkielet</string>
+    <string name="assassin_name">Zabójca</string>
+    <string name="ferocious_wolf_name">Okrutny Wilk</string>
+    <string name="possessed_name">Nawiedzony</string>
+    <string name="bear_name">Niedźwiedź</string>
+    <string name="mercenary_name">Najemnik</string>
+    <string name="ice_golem_name">Lodowy Golem</string>
+    <string name="genie_name">Dżin</string>
+    <string name="footman_name">Szermierz</string>
+    <string name="guard_name">Strażnik</string>
+    <string name="cannoneer_name">Kanonier</string>
+    <string name="demon_name">Demon</string>
+    <string name="wizard_name">Wizard</string>
+    <string name="fire_golem_name">Ognisty Golem</string>
+    <string name="yeti_name">Yeti</string>
+    <string name="druid_name">Druid</string>
+    <string name="dreadful_ghost_name">Okropny Duch</string>
+    <string name="wolf_leader_name">Wilk Alfa</string>
+    <string name="ent_name">Ent</string>
+    <string name="orc_name">Ork</string>
+    <string name="fire_mage_name">Ognisty Czarownik</string>
+    <string name="sea_devil_name">Morski Diabeł</string>
+    <string name="cyclops_name">Cyklop</string>
+    <string name="watchman_name">Stróż</string>
+    <string name="knight_name">Rycerz</string>
+    <string name="northern_sentinel_name">Strażnik Północy</string>
+    <string name="thug_name">Rozbójnik</string>
+
+    <!--neutral-->
+    <string name="golem_name">Golem</string>
+    <string name="young_goblin_name">Young Goblin</string>
+    <string name="young_wolf_name">Young Wolf</string>
+
+    <!--missing-->
+    <string name="orc_shaman_name">Orc Shaman</string>
+    <string name="ogre_name">Ogre</string>
+    <string name="jarl_name">Jarl</string>
+    <string name="ringleader_of_the_thieves_name">Ringleader of the Thieves</string>
+    <string name="reaper_name">Reaper</string>
+</resources>

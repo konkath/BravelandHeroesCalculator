@@ -2,11 +2,11 @@
     <string name="app_name">BravelandHeroesCalculator</string>
     <string name="army_button">Create Army</string>
 
+    <!--Units-->
     <string name="peasant_name">Peasant</string>
     <string name="archer_name">Archer</string>
     <string name="cabin_boy_name">Cabin Boy</string>
     <string name="peon_name">Peon</string>
-    <string name="young_goblin_name">Young Goblin</string>
     <string name="goblin_shooter_name">Goblin Shooter</string>
     <string name="vagrant_archer_name">Vagrant Archer</string>
     <string name="skeleton_archer_name">Skeleton Archer</string>
@@ -29,7 +29,6 @@
     <string name="frogman_name">Frogman</string>
     <string name="daredevil_name">Daredevil</string>
     <string name="zombie_name">Zombie</string>
-    <string name="young_wolf_name">Young Wolf</string>
     <string name="thorns_name">Thorns</string>
     <string name="hunter_name">Hunter</string>
     <string name="bat_name">Bat</string>
@@ -44,7 +43,6 @@
     <string name="arbalest_name">Arbalest</string>
     <string name="cook_name">Cook</string>
     <string name="monk_name">Monk</string>
-    <string name="golem_name">Golem</string>
     <string name="snow_wolf_name">Snow Wolf</string>
     <string name="ancient_skeleton_name">Ancient Skeleton</string>
     <string name="assassin_name">Assassin</string>
@@ -66,16 +64,23 @@
     <string name="wolf_leader_name">Wolf Leader</string>
     <string name="ent_name">Ent</string>
     <string name="orc_name">Orc</string>
-    <string name="orc_shaman_name">Orc Shaman</string>
     <string name="fire_mage_name">Fire Mage</string>
-    <string name="ogre_name">Ogre</string>
     <string name="sea_devil_name">Sea Devil</string>
     <string name="cyclops_name">Cyclops</string>
-    <string name="jarl_name">Jarl</string>
     <string name="watchman_name">Watchman</string>
     <string name="knight_name">Knight</string>
-    <string name="ringleader_of_the_thieves_name">Ringleader of the Thieves</string>
     <string name="northern_sentinel_name">Northern Sentinel</string>
     <string name="thug_name">Thug</string>
+
+    <!--neutral-->
+    <string name="golem_name">Golem</string>
+    <string name="young_goblin_name">Young Goblin</string>
+    <string name="young_wolf_name">Young Wolf</string>
+
+    <!--missing-->
+    <string name="orc_shaman_name">Orc Shaman</string>
+    <string name="ogre_name">Ogre</string>
+    <string name="jarl_name">Jarl</string>
+    <string name="ringleader_of_the_thieves_name">Ringleader of the Thieves</string>
     <string name="reaper_name">Reaper</string>
 </resources>
