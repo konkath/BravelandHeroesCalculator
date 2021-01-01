@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">BravelandHeroesCalculator</string>
     <string name="army_button">Stwórz Armię</string>
+    <string name="select_language_text">Wybierz język</string>
 
     <!--Units-->
     <string name="peasant_name">Chłop</string>

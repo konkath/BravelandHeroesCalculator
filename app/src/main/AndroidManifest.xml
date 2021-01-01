@@ -4,11 +4,15 @@
 
     <application
         android:allowBackup="false"
+        android:configChanges="locale"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:theme="@style/DialogTheme" />
         <activity android:name=".army.ArmyActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -18,4 +22,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

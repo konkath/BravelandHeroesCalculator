@@ -11,6 +11,8 @@ import com.soltysdev.bravelandheroescalculator.db.UnitQuantity;
 import com.soltysdev.bravelandheroescalculator.db.UnitsRepository;
 import com.soltysdev.bravelandheroescalculator.filters.ClanFilter;
 import com.soltysdev.bravelandheroescalculator.filters.TypeFilter;
+import com.soltysdev.bravelandheroescalculator.settings.LanguageManager;
+import com.soltysdev.bravelandheroescalculator.settings.SettingsActivity;
 import com.soltysdev.bravelandheroescalculator.unit.Unit;
 import com.soltysdev.bravelandheroescalculator.unit.UnitAdapter;
 import com.soltysdev.bravelandheroescalculator.unit.UnitClan;
@@ -40,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LanguageManager.initLanguageForContext(MainActivity.this);
+        LanguageManager.setLanguageChangedCallback(this::recreate);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mUnitsRepository = new UnitsRepository(getApplicationContext());
@@ -53,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         mAllUnits = loadUnits();
         mAllUnits.forEach(unit -> {
             unit.setQuantity(mUnitsRepository.getUnitQuantity(unit.getName()));
-            unit.updateLanguage(getApplicationContext());
+            unit.updateLanguage(MainActivity.this);
             unit.setOnDatabaseUpdateCallback(quantity -> mUnitsRepository.insert(
                     new UnitQuantity(unit.getName(), quantity)));
         });
@@ -79,6 +84,11 @@ public class MainActivity extends AppCompatActivity {
     public void onCreateArmyClick(View view) {
         Intent intent = new Intent(this, ArmyActivity.class);
         intent.putParcelableArrayListExtra("units", mAllUnits);
+        startActivity(intent);
+    }
+
+    public void onSettingsClick(View view) {
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 
