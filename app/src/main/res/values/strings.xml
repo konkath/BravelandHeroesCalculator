@@ -2,6 +2,9 @@
     <string name="app_name">BravelandHeroesCalculator</string>
     <string name="army_button">Create Army</string>
     <string name="select_language_text">Change Language</string>
+    <string name="filter_type_text">Type filter</string>
+    <string name="filter_clan_text">Clan filter</string>
+    <string name="sort_text">Sort</string>
 
     <!--Units-->
     <string name="peasant_name">Peasant</string>
