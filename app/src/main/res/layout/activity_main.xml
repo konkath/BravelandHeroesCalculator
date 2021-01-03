@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ui_background_color"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +19,6 @@
             android:id="@+id/includeTypeFilter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toStartOf="@id/sortLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -29,7 +29,7 @@
             android:id="@+id/sortLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:background="@drawable/ui_background_small"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +86,6 @@
             android:id="@+id/includeClanFilter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/includeTypeFilter" />
@@ -97,8 +96,7 @@
         android:id="@+id/units_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:background="@drawable/ui_background"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@+id/army_button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,21 +105,21 @@
 
     <Button
         android:id="@+id/army_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:background="@drawable/ui_button"
         android:onClick="onCreateArmyClick"
         android:text="@string/army_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/settings_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/units_recycler_view" />
 
     <ImageView
         android:id="@+id/settings_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:background="@android:drawable/ic_menu_preferences"
+        android:background="@drawable/ui_settings"
         android:onClick="onSettingsClick"
         app:layout_constraintBottom_toBottomOf="@+id/army_button"
         app:layout_constraintEnd_toEndOf="parent"

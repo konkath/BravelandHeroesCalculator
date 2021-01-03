@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ui_background_color"
     tools:context=".army.ArmyActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:ems="2"
+                android:gravity="center"
                 android:hint="15"
                 android:importantForAutofill="no"
                 android:inputType="numberDecimal"
@@ -81,8 +83,8 @@
         <Button
             android:id="@+id/nextArmyButton"
             android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@android:drawable/ic_media_ff"
+            android:layout_height="64dp"
+            android:background="@drawable/ui_arrow_right"
             android:onClick="onNextArmyClick"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -91,8 +93,8 @@
         <Button
             android:id="@+id/previousArmyButton"
             android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@android:drawable/ic_media_rew"
+            android:layout_height="64dp"
+            android:background="@drawable/ui_arrow_left"
             android:onClick="onPreviousArmyClick"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
