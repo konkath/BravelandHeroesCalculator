@@ -39,6 +39,8 @@ public class Unit implements Parcelable {
     @Getter
     @Setter
     private int quantity;
+
+    private static final float EMPTY_SORTING_MODIFIER = 0.001f;
     private OnDatabaseUpdateCallback onDatabaseUpdateCallback;
 
     public void updateLanguage(Context context) {
@@ -96,12 +98,17 @@ public class Unit implements Parcelable {
         return quantity == 0 ? health : health * quantity;
     }
 
-    private float getAverageAttack() {
-        return (float) (getMaxAttack() + getMinAttack()) / 2;
+    private float getSortingAverageAttack() {
+        float avgAttack = (float) (getMaxAttack() + getMinAttack()) / 2;
+        return quantity > 0 ? avgAttack : avgAttack * EMPTY_SORTING_MODIFIER;
     }
 
-    public static Comparator<Unit> ByAttack = (lhs, rhs) -> Float.compare(rhs.getAverageAttack(), lhs.getAverageAttack());
-    public static Comparator<Unit> ByHealth = (lhs, rhs) -> Float.compare(rhs.getHealth(), lhs.getHealth());
+    private float getSortingHealth() {
+        return quantity > 0 ? health * quantity : health * EMPTY_SORTING_MODIFIER;
+    }
+
+    public static Comparator<Unit> ByAttack = (lhs, rhs) -> Float.compare(rhs.getSortingAverageAttack(), lhs.getSortingAverageAttack());
+    public static Comparator<Unit> ByHealth = (lhs, rhs) -> Float.compare(rhs.getSortingHealth(), lhs.getSortingHealth());
     public static Comparator<Unit> ByName = (lhs, rhs) -> Collator.getInstance().compare(lhs.translated_name, rhs.translated_name);
     public static Comparator<Unit> ByClan = (lhs, rhs) -> Integer.compare(lhs.clan, rhs.clan);
 
