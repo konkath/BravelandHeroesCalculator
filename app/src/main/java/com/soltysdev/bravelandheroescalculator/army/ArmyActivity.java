@@ -109,8 +109,21 @@ public class ArmyActivity extends AppCompatActivity {
     }
 
     private void refreshNavButtons() {
-        mPreviousArmyButton.setEnabled(mArmyIdx != 0);
-        mNextArmyButton.setEnabled(mArmyIdx != mArmies.size() - 1);
+        if (!mPreviousArmyButton.isEnabled() && mArmyIdx > 0) {
+            mPreviousArmyButton.setEnabled(true);
+            mPreviousArmyButton.setVisibility(View.VISIBLE);
+        } else if (mArmyIdx == 0) {
+            mPreviousArmyButton.setEnabled(false);
+            mPreviousArmyButton.setVisibility(View.INVISIBLE);
+        }
+
+        if (!mNextArmyButton.isEnabled() && mArmyIdx < mArmies.size() - 1) {
+            mNextArmyButton.setEnabled(true);
+            mNextArmyButton.setVisibility(View.VISIBLE);
+        } else if (mArmyIdx == mArmies.size() - 1){
+            mNextArmyButton.setEnabled(false);
+            mNextArmyButton.setVisibility(View.INVISIBLE);
+        }
     }
 
     private int getArmyStars(Editable editable) {
