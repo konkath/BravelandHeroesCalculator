@@ -2,7 +2,6 @@ package com.soltysdev.bravelandheroescalculator.unit;
 
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -29,7 +28,7 @@ public class UnitViewHolder extends RecyclerView.ViewHolder {
         if (quantityEditable) {
             mEditQuantity.addTextChangedListener(new QuantityTextWatcher());
         } else {
-            mEditQuantity.setInputType(InputType.TYPE_NULL);
+            mEditQuantity.setEnabled(false);
         }
     }
 

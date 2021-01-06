@@ -52,6 +52,7 @@
                 android:ems="2"
                 android:gravity="center"
                 android:hint="15"
+                android:imeOptions="actionDone"
                 android:importantForAutofill="no"
                 android:inputType="numberDecimal"
                 android:maxLength="2"

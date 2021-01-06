@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import com.soltysdev.bravelandheroescalculator.KeyboardCaptureActivity;
 import com.soltysdev.bravelandheroescalculator.R;
 import com.soltysdev.bravelandheroescalculator.filters.ClanFilter;
 import com.soltysdev.bravelandheroescalculator.filters.TypeFilter;
@@ -20,10 +21,9 @@ import com.soltysdev.bravelandheroescalculator.unit.UnitViewHolder;
 
 import java.util.ArrayList;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class ArmyActivity extends AppCompatActivity {
+public class ArmyActivity extends KeyboardCaptureActivity {
 
     private static final String TAG = ArmyActivity.class.getSimpleName();
 
@@ -120,7 +120,7 @@ public class ArmyActivity extends AppCompatActivity {
         if (!mNextArmyButton.isEnabled() && mArmyIdx < mArmies.size() - 1) {
             mNextArmyButton.setEnabled(true);
             mNextArmyButton.setVisibility(View.VISIBLE);
-        } else if (mArmyIdx == mArmies.size() - 1){
+        } else if (mArmyIdx == mArmies.size() - 1) {
             mNextArmyButton.setEnabled(false);
             mNextArmyButton.setVisibility(View.INVISIBLE);
         }
