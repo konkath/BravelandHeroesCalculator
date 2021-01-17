@@ -1,17 +1,16 @@
 package com.soltysdev.bravelandheroescalculator.army;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.soltysdev.bravelandheroescalculator.KeyboardCaptureActivity;
 import com.soltysdev.bravelandheroescalculator.R;
+import com.soltysdev.bravelandheroescalculator.army.rules.RuleManager;
+import com.soltysdev.bravelandheroescalculator.army.rules.layouts.RulesView;
 import com.soltysdev.bravelandheroescalculator.filters.ClanFilter;
 import com.soltysdev.bravelandheroescalculator.filters.TypeFilter;
 import com.soltysdev.bravelandheroescalculator.unit.Unit;
@@ -32,7 +31,6 @@ public class ArmyActivity extends KeyboardCaptureActivity {
     private Button mNextArmyButton;
     private Button mPreviousArmyButton;
     private int mArmyIdx;
-    private int mArmyStars;
 
     private int mTypeFilter = UnitType.getFullMask();
     private int mClanFilter = UnitClan.getFullMask();
@@ -62,16 +60,18 @@ public class ArmyActivity extends KeyboardCaptureActivity {
             calculateArmy();
         });
 
-        EditText editText = findViewById(R.id.army_quantity);
-        editText.addTextChangedListener(new ArmyStarsWatcher());
-        mArmyStars = getArmyStars(editText.getText());
+        RuleManager ruleManager = RuleManager.getInstance();
+        ruleManager.initRules();
+
+        RulesView rulesView = findViewById(R.id.rulesView);
+        rulesView.setOnRuleChangedCallback(this::calculateArmy);
 
         calculateArmy();
     }
 
     void calculateArmy() {
         mArmyIdx = 0;
-        mArmies = mCalculator.calculate(mArmyStars, mTypeFilter, mClanFilter);
+        mArmies = mCalculator.calculate(mTypeFilter, mClanFilter);
         refreshNavButtons();
         populateArmy();
     }
@@ -123,27 +123,6 @@ public class ArmyActivity extends KeyboardCaptureActivity {
         } else if (mArmyIdx == mArmies.size() - 1) {
             mNextArmyButton.setEnabled(false);
             mNextArmyButton.setVisibility(View.INVISIBLE);
-        }
-    }
-
-    private int getArmyStars(Editable editable) {
-        String value = editable.toString();
-        return value.isEmpty() ? 0 : Integer.parseInt(value);
-    }
-
-    class ArmyStarsWatcher implements TextWatcher {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
-
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) {
-            mArmyStars = getArmyStars(editable);
-            calculateArmy();
         }
     }
 }

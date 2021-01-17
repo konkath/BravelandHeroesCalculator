@@ -10,7 +10,6 @@ import java.util.Objects;
 
 final class ArmyCalculator {
     private static final int MAX_STAR_UNIT = 5;
-    private static final int MAX_UNITS_IN_ARMY = 5;
 
     private HashMap<Integer, ArrayList<Unit>> mBestUnits;
 
@@ -24,11 +23,12 @@ final class ArmyCalculator {
         mBestUnits.forEach((k, v) -> v.sort(Unit.ByAttack));
     }
 
-    ArrayList<Army> calculate(int maxStars, int typeFilter, int clanFilter) {
-        List<List<Integer>> perms = ArmyPermutations.get(maxStars, MAX_UNITS_IN_ARMY);
+    ArrayList<Army> calculate(int typeFilter, int clanFilter) {
+        ArmyPermutations armyPermutations = new ArmyPermutations();
+        List<List<Integer>> perms = armyPermutations.get();
+
         HashMap<Integer, ArrayList<Unit>> filteredUnits = getFilteredUnits(typeFilter, clanFilter);
         ArrayList<Army> generatedArmies = new ArrayList<>();
-
 
         perms.forEach(perm -> {
             List<Integer> usedIndexes = Arrays.asList(0, 0, 0, 0, 0, 0);

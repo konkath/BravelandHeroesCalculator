@@ -20,48 +20,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/miscFilter"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/miscFilter"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/includeArmyTypeFilter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/includeArmyTypeFilter"
-            app:layout_constraintTop_toTopOf="@+id/includeArmyTypeFilter">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                app:layout_constraintBottom_toBottomOf="@+id/army_quantity"
-                app:layout_constraintEnd_toStartOf="@+id/army_quantity"
-                app:layout_constraintTop_toTopOf="@+id/army_quantity"
-                app:srcCompat="@drawable/star"
-                tools:ignore="ContentDescription" />
-
-            <EditText
-                android:id="@+id/army_quantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:ems="2"
-                android:gravity="center"
-                android:hint="15"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-                android:maxLength="2"
-                android:text="15"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="HardcodedText" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.soltysdev.bravelandheroescalculator.filters.ClanFilter
             android:id="@+id/includeArmyClanFilter"
@@ -70,6 +31,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/includeArmyTypeFilter" />
+
+        <com.soltysdev.bravelandheroescalculator.army.rules.layouts.RulesView
+            android:id="@+id/rulesView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/includeArmyClanFilter">
+
+        </com.soltysdev.bravelandheroescalculator.army.rules.layouts.RulesView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
