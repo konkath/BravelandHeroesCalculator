@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="30dp"
+    android:background="@drawable/ui_unit_info">
+
+    <TextView
+        android:id="@+id/ruleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="99"
+        android:gravity="start"
+        android:textColor="@color/colorFont" />
+
+    <Button
+        android:id="@+id/removeRuleButton"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:background="@android:drawable/ic_delete" />
+</LinearLayout>

@@ -4,6 +4,9 @@
     <string name="select_language_text">Change Language</string>
     <string name="filter_type_text">Type filter</string>
     <string name="filter_clan_text">Clan filter</string>
+    <string name="add_rule_button">Add rule</string>
+    <string name="army_rules_text">Army rules</string>
+    <string name="rule_description_text">Create new rule in army</string>
     <string name="sort_text">Sort</string>
 
     <!--Rule.Operator-->
