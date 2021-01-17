@@ -4,7 +4,24 @@
     <string name="select_language_text">Wybierz język</string>
     <string name="filter_type_text">Filtruj typ</string>
     <string name="filter_clan_text">Filtruj klan</string>
+    <string name="add_rule_button">Dodaj zasade</string>
+    <string name="army_rules_text">Zasady armii</string>
+    <string name="rule_description_text">Stwórz nową zasade w armii</string>
     <string name="sort_text">Sortuj</string>
+
+    <!--Rule.Operator-->
+    <string name="operator_lesser">mniej niż</string>
+    <string name="operator_lesser_equal">mniej lub tyle co</string>
+    <string name="operator_equal">tyle co</string>
+    <string name="operator_greater_equal">więcej lub tyle co</string>
+    <string name="operator_greater">więcej niż</string>
+
+    <!--Rule.Type-->
+    <string name="type_limit_stars">gwiazdek powinien wynosić</string>
+    <string name="type_limit_units">jednostek powinien wynosić</string>
+
+    <!--Rule-->
+    <string name="rule_army_limit">limit liczby</string>
 
     <!--Units-->
     <string name="peasant_name">Chłop</string>

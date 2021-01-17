@@ -6,6 +6,20 @@
     <string name="filter_clan_text">Clan filter</string>
     <string name="sort_text">Sort</string>
 
+    <!--Rule.Operator-->
+    <string name="operator_lesser">less than</string>
+    <string name="operator_lesser_equal">less or equal to</string>
+    <string name="operator_equal">equal to</string>
+    <string name="operator_greater_equal">greater or equal to</string>
+    <string name="operator_greater">greater than</string>
+
+    <!--Rule.Type-->
+    <string name="type_limit_stars">stars should be</string>
+    <string name="type_limit_units">units should be</string>
+
+    <!--Rule-->
+    <string name="rule_army_limit">army limit of</string>
+
     <!--Units-->
     <string name="peasant_name">Peasant</string>
     <string name="archer_name">Archer</string>
