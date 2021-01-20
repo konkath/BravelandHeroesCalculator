@@ -19,9 +19,14 @@
     <!--Rule.Type-->
     <string name="type_limit_stars">gwiazdek powinien wynosić</string>
     <string name="type_limit_units">jednostek powinien wynosić</string>
+    <string name="type_limit_warriors">wojownik powinna wynosić</string>
+    <string name="type_limit_defenders">obrońca powinna wynosić</string>
+    <string name="type_limit_marksmen">strzelec powinna wynosić</string>
+    <string name="type_limit_mages">mag powinna wynosić</string>
 
     <!--Rule-->
     <string name="rule_army_limit">limit liczby</string>
+    <string name="rule_army_types">liczba jednostek typu</string>
 
     <!--Units-->
     <string name="peasant_name">Chłop</string>

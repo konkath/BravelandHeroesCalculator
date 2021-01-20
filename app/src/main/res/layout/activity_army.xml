@@ -15,22 +15,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.soltysdev.bravelandheroescalculator.filters.TypeFilter
-            android:id="@+id/includeArmyTypeFilter"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <com.soltysdev.bravelandheroescalculator.filters.ClanFilter
             android:id="@+id/includeArmyClanFilter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/includeArmyTypeFilter" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.soltysdev.bravelandheroescalculator.army.rules.layouts.RulesView
             android:id="@+id/rulesView"

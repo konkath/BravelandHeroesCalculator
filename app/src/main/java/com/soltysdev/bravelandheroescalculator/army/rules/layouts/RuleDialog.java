@@ -191,8 +191,7 @@ public class RuleDialog extends Dialog {
     }
 
     private void onAddRuleClick(View v) {
-        mRuleManager.getArmyLimitRule().addSubRule(
-                mSelectedType, mSelectedOperator, getRuleValue());
+        mSelectedRule.addSubRule(mSelectedType, mSelectedOperator, getRuleValue());
         mRuleAddedCallback.ruleAdded(mSelectedRule, mSelectedType, mSelectedOperator);
         dismiss();
     }

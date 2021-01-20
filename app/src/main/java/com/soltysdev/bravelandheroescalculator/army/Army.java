@@ -1,12 +1,14 @@
 package com.soltysdev.bravelandheroescalculator.army;
 
 import com.soltysdev.bravelandheroescalculator.unit.Unit;
+import com.soltysdev.bravelandheroescalculator.unit.UnitType;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Objects;
 
-final class Army {
+public final class Army {
 
     private ArrayList<Unit> mUnits;
     private int mStars;
@@ -15,8 +17,11 @@ final class Army {
     private float mAvgAttack;
     private int mHealth;
 
+    private HashMap<UnitType, Integer> mUnitTypes;
+
     Army(ArrayList<Unit> units) {
         mUnits = units;
+        mUnitTypes = new HashMap<>();
 
         mUnits.forEach(unit -> {
             mStars += unit.getStars();
@@ -24,11 +29,28 @@ final class Army {
             mMaxAttack += unit.getMaxAttack();
             mAvgAttack += getAverageAttack();
             mHealth += unit.getHealth();
+
+            final Integer packedUnitTypes = mUnitTypes.get(unit.getType());
+            final int unitTypes = packedUnitTypes != null ? packedUnitTypes : 0;
+            mUnitTypes.put(unit.getType(), unitTypes + 1);
         });
     }
 
     ArrayList<Unit> getUnits() {
         return mUnits;
+    }
+
+    public int getSize() {
+        return mUnits.size();
+    }
+
+    public int getStars() {
+        return mStars;
+    }
+
+    public int getUnitTypeQuantity(UnitType unitType) {
+        final Integer unitTypeQuantity = mUnitTypes.getOrDefault(unitType, 0);
+        return unitTypeQuantity != null ? unitTypeQuantity : 0;
     }
 
     private float getAverageAttack() {

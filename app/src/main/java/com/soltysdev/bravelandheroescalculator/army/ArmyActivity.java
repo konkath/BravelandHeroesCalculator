@@ -12,10 +12,8 @@ import com.soltysdev.bravelandheroescalculator.R;
 import com.soltysdev.bravelandheroescalculator.army.rules.RuleManager;
 import com.soltysdev.bravelandheroescalculator.army.rules.layouts.RulesView;
 import com.soltysdev.bravelandheroescalculator.filters.ClanFilter;
-import com.soltysdev.bravelandheroescalculator.filters.TypeFilter;
 import com.soltysdev.bravelandheroescalculator.unit.Unit;
 import com.soltysdev.bravelandheroescalculator.unit.UnitClan;
-import com.soltysdev.bravelandheroescalculator.unit.UnitType;
 import com.soltysdev.bravelandheroescalculator.unit.UnitViewHolder;
 
 import java.util.ArrayList;
@@ -32,7 +30,6 @@ public class ArmyActivity extends KeyboardCaptureActivity {
     private Button mPreviousArmyButton;
     private int mArmyIdx;
 
-    private int mTypeFilter = UnitType.getFullMask();
     private int mClanFilter = UnitClan.getFullMask();
 
     @Override
@@ -54,12 +51,6 @@ public class ArmyActivity extends KeyboardCaptureActivity {
             calculateArmy();
         });
 
-        TypeFilter typeFilter = findViewById(R.id.includeArmyTypeFilter);
-        typeFilter.setFiltrationChangedCallback(filterMask -> {
-            mTypeFilter = filterMask;
-            calculateArmy();
-        });
-
         RuleManager ruleManager = RuleManager.getInstance();
         ruleManager.initRules();
 
@@ -71,7 +62,7 @@ public class ArmyActivity extends KeyboardCaptureActivity {
 
     void calculateArmy() {
         mArmyIdx = 0;
-        mArmies = mCalculator.calculate(mTypeFilter, mClanFilter);
+        mArmies = mCalculator.calculate(mClanFilter);
         refreshNavButtons();
         populateArmy();
     }

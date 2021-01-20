@@ -1,5 +1,7 @@
 package com.soltysdev.bravelandheroescalculator.army.rules;
 
+import com.soltysdev.bravelandheroescalculator.army.Army;
+
 import java.util.ArrayList;
 
 public final class RuleManager {
@@ -7,6 +9,11 @@ public final class RuleManager {
     private static RuleManager INSTANCE = null;
 
     private ArmyLimitRule mArmyLimitRule;
+    private ArrayList<Rule> mAllRules;
+
+    private RuleManager() {
+        mAllRules = new ArrayList<>();
+    }
 
     public static RuleManager getInstance() {
         if (INSTANCE == null) {
@@ -23,7 +30,11 @@ public final class RuleManager {
     }
 
     public void initRules() {
+        mAllRules.clear();
         mArmyLimitRule = new ArmyLimitRule();
+
+        mAllRules.add(mArmyLimitRule);
+        mAllRules.add(new ArmyTypesRule());
     }
 
     public ArmyLimits getArmyLimits() {
@@ -37,15 +48,15 @@ public final class RuleManager {
 
     public ArrayList<Rule> getEditableRules() {
         ArrayList<Rule> editableRules = new ArrayList<>();
-
-        if (mArmyLimitRule.isEditable()) {
-            editableRules.add(mArmyLimitRule);
-        }
-
+        mAllRules.forEach(rule -> {
+            if (rule.isEditable()) {
+                editableRules.add(rule);
+            }
+        });
         return editableRules;
     }
 
-    public ArmyLimitRule getArmyLimitRule() {
-        return mArmyLimitRule;
+    public boolean isArmyValid(Army army) {
+        return mAllRules.stream().allMatch(rule -> rule.isArmyAcceptable(army));
     }
 }

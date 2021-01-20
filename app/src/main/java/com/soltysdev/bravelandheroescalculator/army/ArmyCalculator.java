@@ -1,5 +1,6 @@
 package com.soltysdev.bravelandheroescalculator.army;
 
+import com.soltysdev.bravelandheroescalculator.army.rules.RuleManager;
 import com.soltysdev.bravelandheroescalculator.unit.Unit;
 
 import java.util.ArrayList;
@@ -12,9 +13,12 @@ final class ArmyCalculator {
     private static final int MAX_STAR_UNIT = 5;
 
     private HashMap<Integer, ArrayList<Unit>> mBestUnits;
+    private RuleManager mRuleManager;
 
     ArmyCalculator(ArrayList<Unit> units) {
         mBestUnits = new HashMap<>();
+        mRuleManager = RuleManager.getInstance();
+
         for (int i = 0; i <= MAX_STAR_UNIT; i++) {
             mBestUnits.put(i, new ArrayList<>());
         }
@@ -23,11 +27,11 @@ final class ArmyCalculator {
         mBestUnits.forEach((k, v) -> v.sort(Unit.ByAttack));
     }
 
-    ArrayList<Army> calculate(int typeFilter, int clanFilter) {
+    ArrayList<Army> calculate(int clanFilter) {
         ArmyPermutations armyPermutations = new ArmyPermutations();
         List<List<Integer>> perms = armyPermutations.get();
 
-        HashMap<Integer, ArrayList<Unit>> filteredUnits = getFilteredUnits(typeFilter, clanFilter);
+        HashMap<Integer, ArrayList<Unit>> filteredUnits = getFilteredUnits(clanFilter);
         ArrayList<Army> generatedArmies = new ArrayList<>();
 
         perms.forEach(perm -> {
@@ -49,7 +53,7 @@ final class ArmyCalculator {
 
             if (!armyUnits.isEmpty()) {
                 Army army = new Army(armyUnits);
-                if (!generatedArmies.contains(army)) {
+                if (!generatedArmies.contains(army) && mRuleManager.isArmyValid(army)) {
                     generatedArmies.add(army);
                 }
             }
@@ -59,14 +63,13 @@ final class ArmyCalculator {
         return generatedArmies;
     }
 
-    private HashMap<Integer, ArrayList<Unit>> getFilteredUnits(int typeFilter, int clanFilter) {
+    private HashMap<Integer, ArrayList<Unit>> getFilteredUnits(int clanFilter) {
         HashMap<Integer, ArrayList<Unit>> starUnits = new HashMap<>();
 
         mBestUnits.forEach((k, v) -> {
             ArrayList<Unit> filteredUnits = new ArrayList<>();
             v.forEach(unit -> {
-                if ((unit.getType().mask & typeFilter) != 0 &&
-                        (unit.getClan().mask & clanFilter) != 0) {
+                if ((unit.getClan().mask & clanFilter) != 0) {
                     filteredUnits.add(unit);
                 }
             });

@@ -19,9 +19,14 @@
     <!--Rule.Type-->
     <string name="type_limit_stars">stars should be</string>
     <string name="type_limit_units">units should be</string>
+    <string name="type_limit_warriors">warriors should be</string>
+    <string name="type_limit_defenders">defenders should be</string>
+    <string name="type_limit_marksmen">marksmen should be</string>
+    <string name="type_limit_mages">mages should be</string>
 
     <!--Rule-->
     <string name="rule_army_limit">army limit of</string>
+    <string name="rule_army_types">amount of unit type of</string>
 
     <!--Units-->
     <string name="peasant_name">Peasant</string>
