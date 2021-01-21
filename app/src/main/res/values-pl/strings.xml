@@ -23,10 +23,21 @@
     <string name="type_limit_defenders">obrońca powinna wynosić</string>
     <string name="type_limit_marksmen">strzelec powinna wynosić</string>
     <string name="type_limit_mages">mag powinna wynosić</string>
+    <string name="type_limit_bandits">zbójów powinna wynosić</string>
+    <string name="type_limit_commanders">królestwa powinna wynosić</string>
+    <string name="type_limit_demons">demonów powinna wynosić</string>
+    <string name="type_limit_sorcerers">akademii ognia powinna wynosić</string>
+    <string name="type_limit_ice_mages">mieszkańców północy powinna wynosić</string>
+    <string name="type_limit_dead">nieumarłych powinna wynosić</string>
+    <string name="type_limit_neutral">neutral powinna wynosić</string>
+    <string name="type_limit_orc">orków powinna wynosić</string>
+    <string name="type_limit_pirates">piratów powinna wynosić</string>
+    <string name="type_limit_elves">elfów powinna wynosić</string>
 
     <!--Rule-->
     <string name="rule_army_limit">limit liczby</string>
     <string name="rule_army_types">liczba jednostek typu</string>
+    <string name="rule_army_clans">liczba jednostek z klanu</string>
 
     <!--Units-->
     <string name="peasant_name">Chłop</string>

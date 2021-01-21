@@ -23,10 +23,21 @@
     <string name="type_limit_defenders">defenders should be</string>
     <string name="type_limit_marksmen">marksmen should be</string>
     <string name="type_limit_mages">mages should be</string>
+    <string name="type_limit_bandits">bandits should be</string>
+    <string name="type_limit_commanders">kingdom should be</string>
+    <string name="type_limit_demons">demons should be</string>
+    <string name="type_limit_sorcerers">academy of flame should be</string>
+    <string name="type_limit_ice_mages">northerners should be</string>
+    <string name="type_limit_dead">undead should be</string>
+    <string name="type_limit_neutral">neutral should be</string>
+    <string name="type_limit_orc">orcs should be</string>
+    <string name="type_limit_pirates">pirates should be</string>
+    <string name="type_limit_elves">elves should be</string>
 
     <!--Rule-->
     <string name="rule_army_limit">army limit of</string>
     <string name="rule_army_types">amount of unit type of</string>
+    <string name="rule_army_clans">amount of units of clan</string>
 
     <!--Units-->
     <string name="peasant_name">Peasant</string>

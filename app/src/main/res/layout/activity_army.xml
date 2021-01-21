@@ -7,33 +7,14 @@
     android:background="@drawable/ui_background_color"
     tools:context=".army.ArmyActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
+
+    <com.soltysdev.bravelandheroescalculator.army.rules.layouts.RulesView
+        android:id="@+id/rulesView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.soltysdev.bravelandheroescalculator.filters.ClanFilter
-            android:id="@+id/includeArmyClanFilter"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.soltysdev.bravelandheroescalculator.army.rules.layouts.RulesView
-            android:id="@+id/rulesView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/includeArmyClanFilter">
-
-        </com.soltysdev.bravelandheroescalculator.army.rules.layouts.RulesView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -41,7 +22,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintTop_toBottomOf="@+id/rulesView">
 
         <Button
             android:id="@+id/nextArmyButton"

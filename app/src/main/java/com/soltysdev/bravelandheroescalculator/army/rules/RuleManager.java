@@ -35,6 +35,7 @@ public final class RuleManager {
 
         mAllRules.add(mArmyLimitRule);
         mAllRules.add(new ArmyTypesRule());
+        mAllRules.add(new ArmyClansRule());
     }
 
     public ArmyLimits getArmyLimits() {

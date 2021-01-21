@@ -27,11 +27,11 @@ final class ArmyCalculator {
         mBestUnits.forEach((k, v) -> v.sort(Unit.ByAttack));
     }
 
-    ArrayList<Army> calculate(int clanFilter) {
+    ArrayList<Army> calculate() {
         ArmyPermutations armyPermutations = new ArmyPermutations();
         List<List<Integer>> perms = armyPermutations.get();
 
-        HashMap<Integer, ArrayList<Unit>> filteredUnits = getFilteredUnits(clanFilter);
+        HashMap<Integer, ArrayList<Unit>> filteredUnits = mBestUnits;
         ArrayList<Army> generatedArmies = new ArrayList<>();
 
         perms.forEach(perm -> {
@@ -61,21 +61,5 @@ final class ArmyCalculator {
 
         generatedArmies.sort(Army.ByAttack);
         return generatedArmies;
-    }
-
-    private HashMap<Integer, ArrayList<Unit>> getFilteredUnits(int clanFilter) {
-        HashMap<Integer, ArrayList<Unit>> starUnits = new HashMap<>();
-
-        mBestUnits.forEach((k, v) -> {
-            ArrayList<Unit> filteredUnits = new ArrayList<>();
-            v.forEach(unit -> {
-                if ((unit.getClan().mask & clanFilter) != 0) {
-                    filteredUnits.add(unit);
-                }
-            });
-            starUnits.put(k, filteredUnits);
-        });
-
-        return starUnits;
     }
 }

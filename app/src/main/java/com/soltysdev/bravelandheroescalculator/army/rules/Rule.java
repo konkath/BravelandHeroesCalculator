@@ -34,7 +34,17 @@ public abstract class Rule implements Printable {
         WarriorsLimit(R.string.type_limit_warriors),
         DefendersLimit(R.string.type_limit_defenders),
         MarksmenLimit(R.string.type_limit_marksmen),
-        MagesLimit(R.string.type_limit_mages);
+        MagesLimit(R.string.type_limit_mages),
+        BanditsLimit(R.string.type_limit_bandits),
+        CommandersLimit(R.string.type_limit_commanders),
+        DemonsLimit(R.string.type_limit_demons),
+        SorcerersLimit(R.string.type_limit_sorcerers),
+        IceMagesLimit(R.string.type_limit_ice_mages),
+        DeadLimit(R.string.type_limit_dead),
+        NeutralLimit(R.string.type_limit_neutral),
+        OrcLimit(R.string.type_limit_orc),
+        PiratesLimit(R.string.type_limit_pirates),
+        ElvesLimit(R.string.type_limit_elves);
 
         private int resId;
 
