@@ -9,7 +9,6 @@ import com.soltysdev.bravelandheroescalculator.unit.UnitClan;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 import static com.soltysdev.bravelandheroescalculator.army.rules.Rule.Operator.Equal;
 import static com.soltysdev.bravelandheroescalculator.army.rules.Rule.Operator.GreaterEqual;
@@ -26,50 +25,12 @@ import static com.soltysdev.bravelandheroescalculator.army.rules.Rule.Type.Pirat
 import static com.soltysdev.bravelandheroescalculator.army.rules.Rule.Type.SorcerersLimit;
 
 public final class ArmyClansRule extends Rule {
-    private static final String TAG = ArmyClansRule.class.getSimpleName();
-
-    private static final int EMPTY_VALUE = -1;
-
-    private ArrayList<Type> mAvailableTypes = new ArrayList<>();
-    private HashMap<Type, ArrayList<Operator>> mAvailableOperators = new HashMap<>();
-    private HashMap<Type, UnitClanBounds> mClanBounds = new HashMap<>();
-
-    private static class UnitClanBounds {
-        private static final int MAX_CLANS = 5;
-        private static final int MIN_CLANS = 0;
-
-        private int mUpperBound = MAX_CLANS;
-        private int mLowerBound = MIN_CLANS;
-
-        private UnitClan mUnitClan;
-
-        UnitClanBounds(UnitClan unitClan) {
-            mUnitClan = unitClan;
-        }
-
-        int getUpperBound() {
-            return mUpperBound;
-        }
-
-        void setUpperBound(int max) {
-            mUpperBound = (max == EMPTY_VALUE ? MAX_CLANS : max);
-        }
-
-        int getLowerBound() {
-            return mLowerBound;
-        }
-
-        void setLowerBound(int min) {
-            mLowerBound = (min == EMPTY_VALUE ? MIN_CLANS : min);
-        }
-
-        boolean isArmyInRange(Army army) {
-            return mUpperBound >= army.getUnitClanQuantity(mUnitClan) &&
-                    mLowerBound <= army.getUnitClanQuantity(mUnitClan);
-        }
-    }
+    private static final int MAX_CLANS = 5;
+    private static final int MIN_CLANS = 0;
 
     ArmyClansRule() {
+        TAG = ArmyClansRule.class.getSimpleName();
+
         mAvailableTypes.addAll(Arrays.asList(BanditsLimit, CommandersLimit,
                 DemonsLimit, SorcerersLimit, IceMagesLimit, DeadLimit,
                 NeutralLimit, OrcLimit, PiratesLimit, ElvesLimit));
@@ -85,161 +46,53 @@ public final class ArmyClansRule extends Rule {
         mAvailableOperators.put(PiratesLimit, new ArrayList<>(Arrays.asList(LesserEqual, Equal, GreaterEqual)));
         mAvailableOperators.put(ElvesLimit, new ArrayList<>(Arrays.asList(LesserEqual, Equal, GreaterEqual)));
 
-        mClanBounds.put(BanditsLimit, new UnitClanBounds(UnitClan.Bandit));
-        mClanBounds.put(CommandersLimit, new UnitClanBounds(UnitClan.Commander));
-        mClanBounds.put(DemonsLimit, new UnitClanBounds(UnitClan.Demon));
-        mClanBounds.put(SorcerersLimit, new UnitClanBounds(UnitClan.Sorcerer));
-        mClanBounds.put(IceMagesLimit, new UnitClanBounds(UnitClan.IceMage));
-        mClanBounds.put(DeadLimit, new UnitClanBounds(UnitClan.Dead));
-        mClanBounds.put(NeutralLimit, new UnitClanBounds(UnitClan.Neutral));
-        mClanBounds.put(OrcLimit, new UnitClanBounds(UnitClan.Orc));
-        mClanBounds.put(PiratesLimit, new UnitClanBounds(UnitClan.Pirate));
-        mClanBounds.put(ElvesLimit, new UnitClanBounds(UnitClan.Elves));
+        mBounds.put(BanditsLimit, new ValueBound(MIN_CLANS, MAX_CLANS, EMPTY_VALUE));
+        mBounds.put(CommandersLimit, new ValueBound(MIN_CLANS, MAX_CLANS, EMPTY_VALUE));
+        mBounds.put(DemonsLimit, new ValueBound(MIN_CLANS, MAX_CLANS, EMPTY_VALUE));
+        mBounds.put(SorcerersLimit, new ValueBound(MIN_CLANS, MAX_CLANS, EMPTY_VALUE));
+        mBounds.put(IceMagesLimit, new ValueBound(MIN_CLANS, MAX_CLANS, EMPTY_VALUE));
+        mBounds.put(DeadLimit, new ValueBound(MIN_CLANS, MAX_CLANS, EMPTY_VALUE));
+        mBounds.put(NeutralLimit, new ValueBound(MIN_CLANS, MAX_CLANS, EMPTY_VALUE));
+        mBounds.put(OrcLimit, new ValueBound(MIN_CLANS, MAX_CLANS, EMPTY_VALUE));
+        mBounds.put(PiratesLimit, new ValueBound(MIN_CLANS, MAX_CLANS, EMPTY_VALUE));
+        mBounds.put(ElvesLimit, new ValueBound(MIN_CLANS, MAX_CLANS, EMPTY_VALUE));
     }
 
     @Override
-    public ArrayList<Type> getAvailableTypes() {
-        return mAvailableTypes;
-    }
-
-    @Override
-    public ArrayList<Operator> getAvailableOperators(Type type) {
-        return mAvailableOperators.get(type);
-    }
-
-    @Override
-    public boolean isEditable() {
-        return !mAvailableTypes.isEmpty();
-    }
-
-    @Override
-    public int getMaxEditableValue(Type type) {
-        if (!mClanBounds.containsKey(type)) {
-            Log.e(TAG, "Max value requested for nonexistent key! " + type);
-            return EMPTY_VALUE;
-        }
-
-        UnitClanBounds unitClanBounds = mClanBounds.get(type);
-        return unitClanBounds != null ? unitClanBounds.getUpperBound() : EMPTY_VALUE;
-    }
-
-    @Override
-    public int getMinEditableValue(Type type) {
-        if (!mClanBounds.containsKey(type)) {
-            Log.e(TAG, "Min value requested for nonexistent key! " + type);
-            return EMPTY_VALUE;
-        }
-
-        UnitClanBounds unitClanBounds = mClanBounds.get(type);
-        return unitClanBounds != null ? unitClanBounds.getLowerBound() : EMPTY_VALUE;
-    }
-
-    @Override
-    public boolean isArmyAcceptable(Army army) {
-        return mClanBounds.entrySet().stream().allMatch(
-                entry -> entry.getValue().isArmyInRange(army));
-    }
-
-    @Override
-    public void addSubRule(Type type, Operator operator, int value) {
-        ArrayList<Operator> operators = mAvailableOperators.get(type);
-        if (operators == null) {
-            Log.e(TAG, "Operator " + operator + " for type " + type + " null. Fatal!");
-            return;
-        }
-
-        switch (operator) {
-            case LesserEqual:
-                updateMax(type, value);
-                operators.remove(LesserEqual);
-                operators.remove(Equal);
-                break;
-            case Equal:
-                updateMax(type, value);
-                updateMin(type, value);
-                operators.clear();
-                break;
-            case GreaterEqual:
-                updateMin(type, value);
-                operators.remove(GreaterEqual);
-                operators.remove(Equal);
-                break;
-            default:
-                Log.w(TAG, "Unsupported operator added " + operator + " - skipping!");
-        }
-
-        mAvailableOperators.put(type, operators);
-        if (operators.isEmpty()) {
-            mAvailableTypes.remove(type);
-        }
-    }
-
-    @Override
-    public void removeSubRule(Type type, Operator operator) {
-        ArrayList<Operator> operators = mAvailableOperators.get(type);
-        if (operators == null) {
-            Log.e(TAG, "Operator " + operator + " for type " + type + " null. Fatal!");
-            return;
-        }
-
-        switch (operator) {
-            case LesserEqual:
-                updateMax(type, EMPTY_VALUE);
-                operators.add(LesserEqual);
-                if (operators.contains(GreaterEqual)) {
-                    operators.add(Equal);
-                }
-                break;
-            case Equal:
-                updateMax(type, EMPTY_VALUE);
-                updateMin(type, EMPTY_VALUE);
-                operators.addAll(Arrays.asList(LesserEqual, Equal, GreaterEqual));
-                break;
-            case GreaterEqual:
-                updateMin(type, EMPTY_VALUE);
-                operators.add(GreaterEqual);
-                if (operators.contains(LesserEqual)) {
-                    operators.add(Equal);
-                }
-                break;
-            default:
-                Log.w(TAG, "Unsupported operator removed " + operator + " - skipping!");
-        }
-
-        mAvailableOperators.put(type, operators);
-        if (!mAvailableTypes.contains(type)) {
-            mAvailableTypes.add(type);
-        }
-    }
-
-    private void updateMax(Type type, int value) {
-        UnitClanBounds unitClanBounds = mClanBounds.get(type);
-        if (unitClanBounds == null) {
-            Log.e(TAG, "Unsupported type requested " + type + " - ignoring!");
-            return;
-        }
-        unitClanBounds.setUpperBound(value);
-    }
-
-    private void updateMin(Type type, int value) {
-        UnitClanBounds unitClanBounds = mClanBounds.get(type);
-        if (unitClanBounds == null) {
-            Log.e(TAG, "Unsupported type requested " + type + " - ignoring!");
-            return;
-        }
-        unitClanBounds.setLowerBound(value);
-    }
-
-    @Override
-    public String getFullDescription(Context context, Type type, Operator operator) {
-        return this.getDescription(context) + " " +
-                type.getDescription(context) + " " +
-                operator.getDescription(context) + " " +
-                (operator == LesserEqual ? getMaxEditableValue(type) : getMinEditableValue(type));
+    protected int getValue(Army army, Type type) {
+        return army.getUnitClanQuantity(translateKey(type));
     }
 
     @Override
     public String getDescription(Context context) {
         return context.getResources().getString(R.string.rule_army_clans);
+    }
+
+    private UnitClan translateKey(Type type) {
+        switch (type) {
+            case BanditsLimit:
+                return UnitClan.Bandit;
+            case CommandersLimit:
+                return UnitClan.Commander;
+            case DemonsLimit:
+                return UnitClan.Demon;
+            case SorcerersLimit:
+                return UnitClan.Sorcerer;
+            case IceMagesLimit:
+                return UnitClan.IceMage;
+            case DeadLimit:
+                return UnitClan.Dead;
+            case NeutralLimit:
+                return UnitClan.Neutral;
+            case OrcLimit:
+                return UnitClan.Orc;
+            case PiratesLimit:
+                return UnitClan.Pirate;
+            case ElvesLimit:
+                return UnitClan.Elves;
+            default:
+                Log.e(TAG, "Unsupported key provided - get ready for crash!");
+        }
+        return null;
     }
 }
